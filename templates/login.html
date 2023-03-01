@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <section class="logint" id="login">
+        <div class="title">
+            <h2 class="titleText">Login</h2>
+        </div>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <div class="loginForm">            
+                <div class="inputBox">
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" placeholder="Enter your password">
+                </div>
+                {% for message in messages %}
+                <div class="message">
+                    {{message}}
+                </div>
+                {% endfor %}
+                <div class="inputBox">
+                    <input type="submit" value="Login">
+                </div>
+             </div>
+        </form>
+    </section>
+   
+</body>
+</html>

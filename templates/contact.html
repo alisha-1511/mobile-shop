@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <section class="contact" id="contact">
+        <div class="title">
+            <h2 class="titleText">Contact Us</h2>
+        </div>
+        <form action="/contact" method="post">
+            {% csrf_token %}
+            <div class="contactForm">
+                <h3>Send Message</h3>
+                <div class="inputBox">
+                    <input type="text" placeholder="Name" name="fullname">
+                </div>
+                <div class="inputBox">
+                    <input type="email" placeholder="Email" name="email">
+                </div>
+                <div class="inputBox">
+                    <textarea placeholder="Enter your message" name="query" cols="20" rows="6"></textarea>
+                </div>
+                {% for message in messages %}
+                <div class="message">
+                    {{message}}
+                </div>
+                {% endfor %}
+                <div class="inputBox">
+                    <input type="submit" value="Send">
+                </div>
+             </div>
+        </form>
+    </section>
+
+    </form>
+</body>
+</html>
